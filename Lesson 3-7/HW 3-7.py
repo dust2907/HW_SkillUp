@@ -3,49 +3,87 @@
 # ==========================
 
 class Car:
-    def __init__(self, model, year, engine_volume, color, price):
-        self.brand = 'Skoda'
+    def __init__(self, **kwargs):
+        self.brand = kwargs.get('brand', None)
+        self.model = kwargs.get('model', None)
+        self.year = kwargs.get('year', None)
+        self.engine_volume = kwargs.get('engine_volume', None)
+        self.color = kwargs.get('color', None)
+        self.price = kwargs.get('price', 0.0)
+
+    def __str__(self) -> str:
+        result = ""
+        for key, value in self.__dict__.items():
+            result += f"{key}: {value}\n"
+        return result
+
+    def get_brand(self):
+        return self.brand
+
+    def get_model(self):
+        return self.model
+
+    def get_year(self):
+        return self.year
+
+    def get_engine_volume(self):
+        return self.engine_volume
+
+    def get_color(self):
+        return self.color
+
+    def get_price(self):
+        return self.price
+
+    def set_model(self, model):
         self.model = model
+
+    def set_year(self, year):
         self.year = year
+
+    def set_engine_volume(self, engine_volume):
         self.engine_volume = engine_volume
+
+    def set_color(self, color):
         self.color = color
+
+    def set_price(self, price):
         self.price = price
 
-    def cars(self):
-        return f'This is great car {self.brand} - {self.model}, {self.year} year of ' \
-               f'release. Volume engine {self.engine_volume}, color is {self.color}. Price {self.price}'
+
+if __name__ == "__main__":
+    octavia = Car(
+        brand='Skoda',
+        model='New Octavia',
+        year=2020,
+        engine_volume='2.0',
+        color='blue',
+        price='20000$',
+    )
+    print(octavia)
+
+if __name__ == "__main__":
+    kodiaq = Car(
+        brand='Skoda',
+        model='Kodiaq',
+        year=2020,
+        engine_volume='1.4',
+        color='white',
+        price='21614$',
+    )
+    print(kodiaq)
 
 
-octavia = Car(
-    model='New Octavia',
-    year=2020,
-    engine_volume='2.0',
-    color='blue',
-    price='20000$',
-)
-
-
-kodiaq = Car(
-    model='Kodiaq',
-    year=2020,
-    engine_volume='1.4',
-    color='white',
-    price='21614$',
-)
-
-
-superb = Car(
-    model='Superb',
-    year=2021,
-    engine_volume='2.0',
-    color='black',
-    price='36650$',
-)
-
-
-print(octavia.cars())
-print(kodiaq.cars())
-print(superb.cars())
+if __name__ == "__main__":
+    superb = Car(
+        brand='Skoda',
+        model='Superb',
+        year=2021,
+        engine_volume='2.0',
+        color='black',
+        price='36650$',
+    )
+    print(superb)
 
 print('---------------------------------------------------')
 
@@ -55,46 +93,80 @@ print('---------------------------------------------------')
 
 
 class Book:
-    def __init__(self, name, year, author, genre, price):
+    def __init__(self, **kwargs):
+        self.name = kwargs.get('name', None)
+        self.year = kwargs.get('year', None)
+        self.author = kwargs.get('author', None)
+        self.genre = kwargs.get('genre', None)
+        self.price = kwargs.get('price', 0.0)
+
+    def __str__(self) -> str:
+        result = ""
+        for key, value in self.__dict__.items():
+            result += f"{key}: {value}\n"
+        return result
+
+    def get_name(self):
+        return self.name
+
+    def get_year(self):
+        return self.year
+
+    def get_author(self):
+        return self.author
+
+    def get_genre(self):
+        return self.genre
+
+    def get_price(self):
+        return self.price
+
+    def set_name(self):
         self.name = name
+
+    def set_year(self):
         self.year = year
+
+    def set_author(self):
         self.author = author
+
+    def set_genre(self):
         self.genre = genre
+
+    def set_price(self):
         self.price = price
 
-    def books(self):
-        return f'The book you are interested in is called {self.name}, it is a {self.year} ' \
-               f'release, the {self.genre} genre, by {self.author} and this book costs {self.price}.' \
-               f' Do you want to buy it?'
 
+if __name__ == "__main__":
+    sword_of_destiny = Book(
+        name='Sword of Destiny',
+        year=1992,
+        author='Andzhey Sapkovsky',
+        genre='fantasy',
+        price='7,01$',
+    )
+    print(sword_of_destiny)
 
-sword_of_destiny = Book(
-    name='Sword of Destiny',
-    year=1992,
-    author='Andzhey Sapkovsky',
-    genre='fantasy',
-    price='7,01$',
-)
+if __name__ == "__main__":
+    last_wish = Book(
+        name='Last wish',
+        year=1993,
+        author='Andzhey Sapkovsky',
+        genre='fantasy',
+        price='6,87$',
+    )
+    print(last_wish)
 
-last_wish = Book(
-    name='Last wish',
-    year=1993,
-    author='Andzhey Sapkovsky',
-    genre='fantasy',
-    price='6,87$',
-)
+if __name__ == "__main__":
+    elven_blood = Book(
+        name='Elven blood',
+        year=1994,
+        author='Andzhey Sapkovsky',
+        genre='fantasy',
+        price='6,53$',
+    )
+    print(elven_blood)
 
-elven_blood = Book(
-    name='Elven blood',
-    year=1994,
-    author='Andzhey Sapkovsky',
-    genre='fantasy',
-    price='6,53$',
-)
-
-print(sword_of_destiny.books())
-print(last_wish.books())
-print(elven_blood.books())
 print('---------------------------------------------------')
 
 # ==========================
@@ -103,44 +175,78 @@ print('---------------------------------------------------')
 
 
 class Stadium:
-    def __init__(self, name, year, country, city, capacity):
+    def __init__(self, **kwargs):
+        self.name = kwargs.get('name', None)
+        self.year = kwargs.get('year', None)
+        self.country = kwargs.get('country', None)
+        self.city = kwargs.get('city', None)
+        self.capacity = kwargs.get('capacity', 0.0)
+
+    def __str__(self) -> str:
+        result = ""
+        for key, value in self.__dict__.items():
+            result += f"{key}: {value}\n"
+        return result
+
+    def get_name(self):
+        return self.name
+
+    def get_year(self):
+        return self.year
+
+    def get_country(self):
+        return self.country
+
+    def get_city(self):
+        return self.city
+
+    def get_capacity(self):
+        return self.capacity
+
+    def set_name(self):
         self.name = name
+
+    def set_year(self):
         self.year = year
+
+    def set_country(self):
         self.country = country
+
+    def set_city(self):
         self.city = city
+
+    def set_capacity(self):
         self.capacity = capacity
 
-    def stadiums(self):
-        return f' {self.name} stadium is located in {self.city}, {self.country},' \
-               f' built in {self.year} and has a capacity of {self.capacity} spectators.' \
-               f' This is a great place to spend your free time!'
 
+if __name__ == "__main__":
+    tottenham_hotspur = Stadium(
+        name='Tottenham Hotspur Stadium',
+        year=2019,
+        country='UK',
+        city='London',
+        capacity='62 062',
+    )
+    print(tottenham_hotspur)
 
-tottenham_hotspur = Stadium(
-    name='Tottenham Hotspur Stadium',
-    year=2019,
-    country='UK',
-    city='London',
-    capacity='62 062',
-)
+if __name__ == "__main__":
+    ferenc_puskas = Stadium(
+        name='Ferenc Puskas',
+        year=2019,
+        country='Hungary',
+        city='Budapest',
+        capacity='67 215',
+    )
+    print(ferenc_puskas)
 
-ferenc_puskas = Stadium(
-    name='Ferenc Puskas',
-    year=2019,
-    country='Hungary',
-    city='Budapest',
-    capacity='67 215',
-)
+if __name__ == "__main__":
+    allianz_arena = Stadium(
+        name='Allianz Arena',
+        year=2005,
+        country='Germany',
+        city='Munich',
+        capacity='75 024',
+    )
+    print(allianz_arena)
 
-allianz_arena = Stadium(
-    name='Allianz Arena',
-    year=2005,
-    country='Germany',
-    city='Munich',
-    capacity='75 024',
-)
-
-print(tottenham_hotspur.stadiums())
-print(ferenc_puskas.stadiums())
-print(allianz_arena.stadiums())
 print('---------------------------------------------------')
