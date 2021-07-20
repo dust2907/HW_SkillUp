@@ -1,10 +1,10 @@
 class Jedi:
     def __init__(self, **kwargs) -> None:
-        self.__name = kwargs.get('Name', None)
-        self.__height = kwargs.get('Height', 0)
-        self.__title = kwargs.get('Title', None)
-        self.__side = kwargs.get('Side', None)
-        self.__light_saber = kwargs.get('Saber', None)
+        self.__name = kwargs.get('name', None)
+        self.__height = kwargs.get('height', 0)
+        self.__title = kwargs.get('title', None)
+        self.__side = kwargs.get('side', None)
+        self.__light_saber = kwargs.get('light_saber', None)
 
     def __str__(self) -> str:
         return "\nName: {}\nHeight: {}\nTitle: {}\nSide: {}\nlight_saber: {}\n".format(
